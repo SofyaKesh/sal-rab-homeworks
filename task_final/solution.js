@@ -38,31 +38,32 @@ function sendRequest(name, phone, address, goods, sum) {
         client: name + " " + phone, 
         order: {
             address: "ул. " + address.street  + ", дом " + address.house+ ", " + address.entrance+ " подъезд, " + address.floor+ " этаж, кв " + address.flat, 
-            sum: 
+            sum: sum
             }, 
         goods: [
-            {
+            /*{
             title: `${goods.title}`,
             count: goods.count
-             }
+             }*/
             ]
     };
 
     //let countOfGoods = goods.length;
 
-    for (let i = 0; i <= goods.length; i += 1) {
+    for (let i = 0; i < goods.length; i += 1) {
         /*let list = {
             title: goods[i].title,
             count: goods[i].count
         };*/
-        /*data.goods.push({
+
+        data.goods.push({
             title: goods[i].title,
             count: goods[i].count
-        });*/
-        goods.push({
+        });
+        /*goods.push({
             title: goods[i].title[i],
             count: goods[i].count[i]
-        });
+        });*/
       //data.goods.push(goods[i].title);
      // data.goods.push(goods[i].count);
    }
@@ -72,7 +73,7 @@ function sendRequest(name, phone, address, goods, sum) {
 
     //data.client = 'Иван';
 
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify({data});
 
     //let jsonData = JSON.parse(data);
     return jsonData;
